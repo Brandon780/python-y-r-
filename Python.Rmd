@@ -7,6 +7,42 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##
+## Cargar y verificar datos
+
+```{r ,message = FALSE}
+library('ggplot2') # visualization
+library('ggthemes') # visualization
+library('scales') # visualization
+library('dplyr') # data manipulation
+library('mice') # imputation
+library('randomForest') # classification algorithm
+```
+
+## Con los paquetes cargados, importemos y examinemos los datos
+
+```{r}
+train <- read.csv('train.csv', stringsAsFactors = F)
+test  <- read.csv('test.csv', stringsAsFactors = F)
+
+full  <- bind_rows(train, test) # bind training & test data
+
+
+```
+
+## obtendrás información sobre las clases de objeto
+
+```{r}
+# check data
+str(full)
+```
+
+# transformacion de caracteristicas y estandarizacion
+
+
+Se propone realizar transfromacion características de variables , extrayendo títulos y apellidos de la variable "nombre del pasajero" para representar estatus social y familias respectivamente. Esto enriquecerá el conjunto de datos y podría mejorar la precisión de los modelos predictivos
+
+
+
+
 
 
